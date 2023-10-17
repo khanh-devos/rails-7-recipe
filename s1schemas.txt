@@ -1,0 +1,21 @@
+Add devise because devise will auto-create Model User:
+# Add gem 'devise' into Gemfile
+Ter: bundle i
+Ter: rails g devise:install
+# Whether User model is existing or non-existing, it is still OK.
+Ter: rails g devise User
+# Now add column|field 'name' into the table 'users'
+Ter: rails db:migrate
+
+# now config header or navigation bar
+
+# Set primary key at model user by helper
+self.primary_key = 'name'
+
+# create table Recipe:
+# one reference to user's name, and one reference to Recipe Food
+Ter: rails g model Recipe name:string preparation_time:string cooking_time:string description:text public:boolean users:references
+
+
+# create 3 tables at the same time:
+
