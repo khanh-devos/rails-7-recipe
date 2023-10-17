@@ -3,6 +3,6 @@ class Food < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
 
   belongs_to :user, foreign_key: :buyer_id
-  
+
   has_many :recipe_foods
 end

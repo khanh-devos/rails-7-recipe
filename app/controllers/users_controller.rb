@@ -1,4 +1,2 @@
-class UsersController < ActionController
-
-
+class UsersController < ApplicationController
 end
