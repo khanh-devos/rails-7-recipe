@@ -1,6 +1,11 @@
 
 :root {
   --total_padding: 1rem 10rem;
+  --primary-color: #ff8400;
+  --white-color: #fffafb;
+  --text-color: #130e01;
+  --light-white-color: #fff5d6;
+  --bold-orange-color: #cf4307;
 
   @media screen and (max-width: 768px) {
     --total_padding: 1rem 1rem;
