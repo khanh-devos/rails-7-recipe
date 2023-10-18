@@ -36,6 +36,9 @@ body {
   margin-top: 1rem;
   text-decoration: none;
   color: black;
+  border: solid blue 0.5px;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .form {
