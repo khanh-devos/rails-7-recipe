@@ -1,8 +1,11 @@
 <div id="<%= dom_id recipe %>" >
-  <div class="recipe-item">
+  <%= link_to user_recipe_path(user_id: current_user.id, id: recipe.id), class: "recipe-item" do %>
 
-    <p><%= "Recipe name : #{recipe.name.upcase}" %> </p>
-    <p><%= "Description : #{recipe.description}" %> </p>
+      <p> <%= "Recipe name : #{recipe.name.upcase}" %> </p>
+      <p> <%= "Description : #{(recipe.description + '. ') * 15}" %> </p>
+    
+  <% end %>
 
-  </div>
+  <%= button_to 'remove', user_recipe_path(user_id: current_user.id, id: recipe.id), method: 'delete' %>
+
 </div>
