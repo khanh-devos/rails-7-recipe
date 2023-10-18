@@ -1,12 +1,10 @@
 class FoodsController < ApplicationController
-
   def index
     @foods = Food.all.order(created_at: 'desc')
   end
 
-
   def new
-    #render form
+    # render form
   end
 
   def create
@@ -18,9 +16,8 @@ class FoodsController < ApplicationController
       redirect_to '/'
 
     else
-      render :new, alert: "Failed to add a new food!"
+      render :new, alert: 'Failed to add a new food!'
     end
-
   end
 
   def destroy
@@ -30,15 +27,12 @@ class FoodsController < ApplicationController
       redirect_to request.referer
     else
       flash[:notice] = 'Failed to delete'
-      redirect_to request.referer
     end
   end
-
 
   private
 
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
-
 end

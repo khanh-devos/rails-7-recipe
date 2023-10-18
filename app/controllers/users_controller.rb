@@ -3,6 +3,4 @@ class UsersController < ApplicationController
     sign_out(current_user)
     redirect_to '/'
   end
-
-
 end
