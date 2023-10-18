@@ -31,7 +31,8 @@ body {
   margin-bottom: 2rem;
 }
 
-.recipe-item, .food-item {
+.recipe-item,
+.food-item {
   margin-top: 1rem;
   text-decoration: none;
   color: black;
