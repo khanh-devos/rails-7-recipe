@@ -14,10 +14,65 @@
   font-size: 16px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 body {
   padding: var(--total_padding);
 }
 
-.recipe-item {
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.recipe-item,
+.food-item {
   margin-top: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notice {
+  color: rgb(0, 156, 3);
+}
+
+.alert {
+  color: rgb(255, 0, 0);
+}
+
+.toggle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form-check {
+  scale: 1.5;
+  pointer-events: none;
+}
+
+.recipe-food-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.recipe-food-item * {
+  border: 0.1rem solid red;
+}
+
+.recipe-food-header {
+  border: 0.1rem solid red;
 }
