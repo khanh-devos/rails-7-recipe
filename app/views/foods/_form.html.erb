@@ -1,0 +1,29 @@
+<%= form_with model: @food, url: user_foods_path(user_id: current_user.id), method: 'post', local: true, scope: :food do |form| %>
+  <div class='form'>
+
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name, autofocus: true, required: true %>
+    </div>
+
+    <div>
+        <%= form.label :measurement_unit %>
+        <%= form.select :measurement_unit, [["gram", "gram"], ['unit', 'unit']], selected: 'gr' %>
+    </div>
+
+    <div>
+        <%= form.label :price %>
+        <%= form.text_field :price, required: true %>
+    </div>
+
+    <div>
+        <%= form.label :quantity %>
+        <%= form.number_field :quantity, required: true %>
+    </div>
+
+    <div>
+        <%= form.submit "Add" %>
+    </div>
+
+  </div>
+<% end %>

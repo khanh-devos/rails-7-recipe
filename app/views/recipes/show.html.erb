@@ -1,0 +1,47 @@
+<div>
+  <h2><%= @recipe.name.upcase %> </h2>
+
+  <div class='toggle-container'>
+
+    
+    <strong>Public :</strong>
+    <div class="form-check form-switch">
+      <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">    
+    </div>
+    <%= button_to "change", url: recipe_modify_path(user_id: current_user.id, id: @recipe.id), method: 'post' %>
+      
+        
+  </div>
+
+  <p>
+    <%= "Preparation time: #{@recipe.preparation_time}" %>
+  </p>
+
+  <p>
+    <%= "Cooking time: #{@recipe.cooking_time}" %>
+  </p>
+
+  <div>
+    <p>Steps go here...
+    <%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: @recipe.id) %>
+    </p>
+  </div>
+
+  <div>
+
+    <div class="recipe-food-item recipe-food-header">  
+      <strong>Food</strong>
+      <strong>Quantity</strong>
+      <strong>Value</strong>    
+      <strong>Action</strong>
+    </div>
+
+    <% @recipe_foods.each do |recipe_food| %>
+
+      <%= render recipe_food %>
+
+    <% end %>
+  </div>
+
+
+</div>
