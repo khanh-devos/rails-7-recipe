@@ -1,2 +1,15 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<h1>Food List</h1>
+
+<!-- Display the food list -->
+<ul>
+  <% @foods.each do |food| %>
+    <li><%= "#{food.name} - Quantity: #{food.quantity}" %></li>
+  <% end %>
+</ul>
+
+<!-- Form to add new food -->
+<%= form_with(url: '/foods', method: 'post') do |form| %>
+  <%= form.text_field :name, placeholder: 'Food name', required: true %>
+  <%= form.number_field :quantity, placeholder: 'Quantity', required: true %>
+  <%= form.submit 'Add' %>
+<% end %>
