@@ -1,0 +1,22 @@
+<section class="add-new-ingredient-section flex justify-center items-center h-[60vh]">
+    <div class="form-container">
+        <h1 class="text-2xl font-semibold mb-5">Add New Ingredient</h1>
+        <%= form_with model: @food do |f| %>
+          <div class="mb-5">
+            <%= f.text_field :name, placeholder: 'NAME', required: true %>
+          </div>
+          <div class="mb-5">
+            <%= f.text_field :measurement_unit, placeholder: 'UNIT(Gram)', required: true %>
+          </div>
+          <div class="mb-5">
+            <%= f.number_field :price, step: 0.01, placeholder: 'PRICE (USD)', required: true %>
+          </div>
+          <div class="mb-5">
+            <%= f.number_field :quantity, placeholder: 'QUANTITY', required: true %>
+          </div>
+          <div class="mb-5"> 
+            <%= f.submit "Add new Ingredient", class: "px-6 rounded-2xl py-3 text-white bg-blue-500 hover:bg-blue-300 cursor-pointer transition-all"%>
+          </div>
+        <% end %>
+    </div>
+</section>

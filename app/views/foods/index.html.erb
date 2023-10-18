@@ -1,15 +1,43 @@
-<h1>Food List</h1>
+<%# <%= render "shared/navbar" %> %>
+<section class="food-body-section">
+    <div class="food-body-container flex items-center flex-col my-10">
+        <h2 class="font-semibold text-3xl mb-5">My Ingredients</h2>
+        <% if @foods.empty?%>
+            <h2 class="mb-5">You don't have any Ingredients yet</h2>
+            <%= link_to "Add Ingredient", new_food_path, class: 'px-6 rounded-2xl py-3 text-white bg-blue-500 hover:bg-blue-300 cursor-pointer transition-all'%>
+        <% else%>
+        <table class="border">
+            <thead class="border">
+                <tr>
+                <th class=" p-5">Ingredient</th>
+                <th class=" p-5">Unit</th>
+                <th class=" p-5">Price</th>
+                <th class=" p-5">Quantity</th>
+                <th class=" p-5">Action</th>
+                </tr>
+            </thead>
+  <tbody class="">
+    <!-- Add table rows with data here -->
+    <% @foods.each do |food|%>
+    <tr class="">
+      <td class="p-5"><%= food.name %></td>
+      <td class="p-5"><%= food.measurement_unit %></td>
+      <td class="p-5"><%= food.price %></td>
+      <td class="p-5"><%= food.quantity %></td>
+      <td class="p-5">
+        <%= button_to 'Delete', food_path(id: food.id), method: :delete, class: 'border px-3 py-1 text-white bg-red-500 my-5' %>
+      </td>
+    </tr>
+    <% end %>
 
-<!-- Display the food list -->
-<ul>
-  <% @foods.each do |food| %>
-    <li><%= "#{food.name} - Quantity: #{food.quantity}" %></li>
-  <% end %>
-</ul>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
+    <div class="mt-5">
+        <%= link_to "Add Ingredient", new_food_path, class: 'px-6 rounded-2xl py-3 text-white bg-blue-500 hover:bg-blue-300  cursor-pointer transition-all'%>
+    </div>
 
-<!-- Form to add new food -->
-<%= form_with(url: '/foods', method: 'post') do |form| %>
-  <%= form.text_field :name, placeholder: 'Food name', required: true %>
-  <%= form.number_field :quantity, placeholder: 'Quantity', required: true %>
-  <%= form.submit 'Add' %>
-<% end %>
+
+        <% end %>
+    </div>
+</section>
