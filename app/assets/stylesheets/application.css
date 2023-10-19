@@ -31,16 +31,28 @@ body {
   margin-bottom: 2rem;
 }
 
-.recipe-item,
-.food-item {
-  margin: 2rem 0;
+.recipe-item {
   text-decoration: none;
   color: black;
+  border: solid blue 0.5px;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 2rem 0 2rem 0;
+  display: block;
+}
+
+.food-item {
+  margin-top: 2rem;
+  text-decoration: none;
+  color: black;
+  border: solid blue 0.5px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: min-content;
   gap: 1rem;
 }
 
