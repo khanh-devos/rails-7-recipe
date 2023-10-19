@@ -11,28 +11,24 @@ RSpec.describe 'Home page', type: 'feature' do
       @food3 = Food.create(buyer_id: @user1.id, name: 'food3', measurement_unit: 'gram', quantity: 1000)
       @food4 = Food.create(buyer_id: @user2.id, name: 'food4', measurement_unit: 'gram', quantity: 1000)
 
-      
       @recipe1 = Recipe.create(author_id: @user1.id, name: 'recipe1', public: true, cooking_time: 1, preparation_time: 1,
-        description: 'This is a description1')
+                               description: 'This is a description1')
 
       @recipe2 = Recipe.create(author_id: @user2.id, name: 'recipe2', public: true, cooking_time: 1, preparation_time: 1,
-        description: 'This is a description2')
+                               description: 'This is a description2')
 
       @recipe_food1 = RecipeFood.create(recipe_id: @recipe1.id, food_id: @food1.id, quantity: 1)
       @recipe_food2 = RecipeFood.create(recipe_id: @recipe1.id, food_id: @food2.id, quantity: 3)
 
-      
       # First of all, log in
-      visit "/users/sign_in"
+      visit '/users/sign_in'
       within('form') do
         fill_in 'user_email', with: 'bio1@gmail.com'
         fill_in 'user_password', with: 'photo1@bc'
       end
-  
+
       click_button 'Log in'
-
     end
-
 
     it "check login user's name existing and link-btns 'Recipe', 'Log Out'" do
       expect(page).to have_content('user1')
@@ -84,6 +80,5 @@ RSpec.describe 'Home page', type: 'feature' do
       click_button('remove')
       expect(page).not_to have_content('RECIPE1')
     end
-
   end
 end
