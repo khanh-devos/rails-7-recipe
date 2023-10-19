@@ -95,7 +95,7 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
   require 'factory_bot_rails'
 
-  RSpec.configure do |config|
-    config.include FactoryBot::Syntax::Methods
+  RSpec.configure do |rspec_config|
+    rspec_config.include FactoryBot::Syntax::Methods
   end
 end
