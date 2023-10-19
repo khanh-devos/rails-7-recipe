@@ -34,9 +34,9 @@ RSpec.describe FoodsController, type: :controller do
       end
 
       it 'creates a new food item' do
-        expect {
+        expect do
           post :create, params: { food: { name: 'Pizza', measurement_unit: 'pieces', price: 10, quantity: 5 } }
-        }.to change(Food, :count).by(1)
+        end.to change(Food, :count).by(1)
       end
 
       it 'assigns the current user as the buyer_id for the new food item' do
@@ -57,7 +57,7 @@ RSpec.describe FoodsController, type: :controller do
         expect(flash[:notice]).to eq('New food created successfully!')
       end
     end
-    
+
     context 'with invalid parameters' do
       it 'renders the new template' do
         post :create, params: { food: { name: 'Pizza', measurement_unit: 'pieces', price: -10, quantity: 5 } }
@@ -76,25 +76,25 @@ RSpec.describe FoodsController, type: :controller do
     it 'destroys the selected food item' do
       food = Food.create(name: 'Pizza', measurement_unit: 'pieces', price: 10, quantity: 5)
 
-      expect {
+      expect do
         delete :destroy, params: { id: food.id }
-      }.to change(Food, :count).by(-1)
+      end.to change(Food, :count).by(-1)
     end
 
     it 'redirects back to the previous page' do
-      request.env["HTTP_REFERER"] = '/foods'
+      request.env['HTTP_REFERER'] = '/foods'
       food = Food.create(name: 'Pizza', measurement_unit: 'pieces', price: 10, quantity: 5)
 
       delete :destroy, params: { id: food.id }
 
       expect(response).to redirect_to('/foods')
     end
-    
+
     it 'sets the flash notice message on successful deletion' do
       food = Food.create(name: 'Pizza', measurement_unit: 'pieces', price: 10, quantity: 5)
-      
+
       delete :destroy, params: { id: food.id }
-      
+
       expect(flash[:notice]).to eq('Successfully deleted')
     end
   end

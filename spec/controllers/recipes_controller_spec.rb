@@ -37,9 +37,9 @@ RSpec.describe RecipesController, type: :controller do
   describe 'POST #create' do
     context 'with valid parameters' do
       it 'creates a new recipe' do
-        expect {
+        expect do
           post :create, params: { recipe: attributes_for(:recipe), user_id: user.id }
-        }.to change(Recipe, :count).by(1)
+        end.to change(Recipe, :count).by(1)
       end
 
       it 'sets the correct flash notice' do
@@ -55,9 +55,9 @@ RSpec.describe RecipesController, type: :controller do
 
     context 'with invalid parameters' do
       it 'does not create a new recipe' do
-        expect {
+        expect do
           post :create, params: { recipe: attributes_for(:recipe, name: ''), user_id: user.id }
-        }.to_not change(Recipe, :count)
+        end.to_not change(Recipe, :count)
       end
 
       it 'renders the new template again' do
@@ -74,9 +74,9 @@ RSpec.describe RecipesController, type: :controller do
 
   describe 'PATCH #modify_public' do
     it 'changes the public status of the recipe' do
-      expect {
+      expect do
         patch :modify_public, params: { id: recipe.id }
-      }.to change { recipe.reload.public }.from(true).to(false)
+      end.to change { recipe.reload.public }.from(true).to(false)
     end
 
     it 'redirects back to the previous page' do
@@ -88,9 +88,9 @@ RSpec.describe RecipesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'destroys the recipe' do
-      expect {
+      expect do
         delete :destroy, params: { id: recipe.id }
-      }.to change(Recipe, :count).by(-1)
+      end.to change(Recipe, :count).by(-1)
     end
 
     it 'sets the correct flash notice' do

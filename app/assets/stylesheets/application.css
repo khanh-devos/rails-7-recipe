@@ -31,14 +31,23 @@ body {
   margin-bottom: 2rem;
 }
 
-.recipe-item,
+.recipe-item {
+  text-decoration: none;
+  color: black;
+  border: solid blue 0.5px;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 1rem 0 1rem 0;
+  display: block;
+}
+
 .food-item {
   margin-top: 1rem;
   text-decoration: none;
   color: black;
   border: solid blue 0.5px;
-    padding: 15px;
-    border-radius: 10px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .form {
