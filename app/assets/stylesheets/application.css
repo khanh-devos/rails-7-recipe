@@ -48,6 +48,8 @@ body {
   border: solid blue 0.5px;
   padding: 15px;
   border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
 }
 
 .form {
@@ -106,7 +108,7 @@ a:active {
   font-weight: bold;
 }
 
-.food-item {
+/* .food-item {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
-}
+} */
