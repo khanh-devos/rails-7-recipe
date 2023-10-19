@@ -11,11 +11,23 @@ RSpec.describe 'Home page', type: 'feature' do
       @food3 = Food.create(buyer_id: @user1.id, name: 'food3', measurement_unit: 'gram', quantity: 1000)
       @food4 = Food.create(buyer_id: @user2.id, name: 'food4', measurement_unit: 'gram', quantity: 1000)
 
-      @recipe1 = Recipe.create(author_id: @user1.id, name: 'recipe1', public: true, cooking_time: 1, preparation_time: 1,
-                               description: 'This is a description1')
+      @recipe1 = Recipe.create(
+        author_id: @user1.id,
+        name: 'recipe1',
+        public: true,
+        cooking_time: 1,
+        preparation_time: 1,
+        description: 'This is a description1'
+      )
 
-      @recipe2 = Recipe.create(author_id: @user2.id, name: 'recipe2', public: true, cooking_time: 1, preparation_time: 1,
-                               description: 'This is a description2')
+      @recipe2 = Recipe.create(
+        author_id: @user2.id,
+        name: 'recipe2',
+        public: true,
+        cooking_time: 1,
+        preparation_time: 1,
+        description: 'This is a description2'
+      )
 
       @recipe_food1 = RecipeFood.create(recipe_id: @recipe1.id, food_id: @food1.id, quantity: 1)
       @recipe_food2 = RecipeFood.create(recipe_id: @recipe1.id, food_id: @food2.id, quantity: 3)
