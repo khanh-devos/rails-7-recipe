@@ -38,7 +38,6 @@ RSpec.describe 'Food page', type: 'feature' do
         fill_in 'user_email', with: 'bio1@gmail.com'
         fill_in 'user_password', with: 'photo1@bc'
       end
-
       click_button 'Log in'
 
       # Check in Food page
