@@ -75,4 +75,3 @@ end
 
 gem 'cancancan'
 gem 'devise'
-gem 'factory_bot_rails'

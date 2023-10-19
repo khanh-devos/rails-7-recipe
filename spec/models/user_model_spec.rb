@@ -27,13 +27,12 @@ RSpec.describe User do
     expect(assc.macro).to eq :has_many
   end
 
-  it 'test method recent_posts' do
-    Food.create(buyer_id: subject.id, name: 'food1', measurement_unit: 'unit', quantity: 2)
-    Food.create(buyer_id: subject.id, name: 'food2', measurement_unit: 'unit', quantity: 3)
-    Recipe.create(author_id: subject.id, name: 'recipe3', public: true)
-    Recipe.create(author_id: subject.id, name: 'recipe4', public: false)
+  it 'Recipe names should be unique' do
+    Recipe.create(author_id: subject.id, name: 'recipe1', public: true, cooking_time: 1, preparation_time: 1,
+      description: 'This is a description')
+    Recipe.create(author_id: subject.id, name: 'Recipe1', public: true, cooking_time: 1, preparation_time: 1,
+      description: 'This is a description')
 
-    expect(subject.foods.size).to eql(2)
-    expect(subject.recipes.size).to eql(2)
+    expect(subject.recipes.size).to eql(1)
   end
 end
