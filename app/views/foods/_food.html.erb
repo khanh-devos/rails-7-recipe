@@ -2,9 +2,11 @@
   <div class="food-item">
 
     <p><%= "Food name:  #{food.name.upcase}" %> </p>
+    <p><%= "By:  #{food.user.name}" %> </p>
     <p><%= "unit:  #{food.measurement_unit}" %> </p>
     <p><%= "price:  #{food.price}" %> </p>
     <p><%= "quantity:  #{food.quantity}" %> </p>
     <%= button_to 'destroy', user_food_path(user_id: current_user.id, id: food.id), method: 'delete' %>
+  
   </div>
 </div>

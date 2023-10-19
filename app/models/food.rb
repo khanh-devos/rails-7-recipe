@@ -1,8 +1,7 @@
 class Food < ApplicationRecord
-  # dont accept food with the same name, no matter it is capitalized or not.
-  validates :name, uniqueness: { case_sensitive: false }
+  # different users could buy same food with different prices.
 
   belongs_to :user, foreign_key: :buyer_id
 
-  has_many :recipe_foods
+  has_many :recipe_foods, foreign_key: 'food_id', dependent: :destroy
 end

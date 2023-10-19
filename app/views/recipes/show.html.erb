@@ -1,5 +1,8 @@
 <div>
-  <h2><%= @recipe.name.upcase %> </h2>
+  <h2>
+    <%= @recipe.name.upcase %> 
+    (by : <%= User.find(@recipe.author_id).name %>)
+  </h2>
 
   <div class='toggle-container'>
 
@@ -8,8 +11,10 @@
     <div class="form-check form-switch">
       <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">    
     </div>
-    <%= button_to "change", url: recipe_modify_path(user_id: current_user.id, id: @recipe.id), method: 'post' %>
-      
+
+    <% if can? :mange, @recipe %>
+      <%= button_to "change", url: recipe_modify_path(user_id: current_user.id, id: @recipe.id), method: 'post' %>
+    <% end %>
         
   </div>
 
@@ -21,10 +26,23 @@
     <%= "Cooking time: #{@recipe.cooking_time}" %>
   </p>
 
+  <p>Steps go here...</p>
+
   <div>
-    <p>Steps go here...
-    <%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: @recipe.id) %>
-    </p>
+    
+    
+      <p>
+        <%= link_to 'Generate shopping list', shopping_list_path(user_id: current_user.id) %>
+      </p>
+
+    <% if can? :create, @recipe%>
+    
+      <p>
+      <%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: @recipe.id) %>
+      </p>
+
+    <% end %>
+
   </div>
 
   <div>
