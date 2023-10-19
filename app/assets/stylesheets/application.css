@@ -33,7 +33,7 @@ body {
 
 .recipe-item,
 .food-item {
-  margin-top: 1rem;
+  margin: 2rem 0;
   text-decoration: none;
   color: black;
 }
@@ -75,4 +75,21 @@ body {
 
 .recipe-food-header {
   border: 0.1rem solid red;
+}
+
+.public-recipe-item,
+.shopping-list-header {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.shopping-list-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
+}
+
+a:active {
+  font-weight: bold;
 }

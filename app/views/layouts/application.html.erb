@@ -29,11 +29,14 @@
       <%= link_to 'Home', '/'  %>
 
       <% if user_signed_in?  %>
-        <%= link_to 'Log Out', destroy_user_session_path  %>
         <%= link_to 'Food',  user_foods_path(user_id: current_user.id)  %>
         <%= link_to 'Recipe',  user_recipes_path(user_id: current_user.id)  %>
 
+        <%= link_to 'Public Recipes',  public_recipes_path(user_id: current_user.id)  %>
         
+        <%= link_to 'Shopping list', shopping_list_path(user_id: current_user.id) %>
+
+        <%= link_to 'Log Out', destroy_user_session_path  %>
         <strong>
           <%= current_user.name %>
         </strong>

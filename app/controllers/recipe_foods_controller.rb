@@ -1,4 +1,8 @@
 class RecipeFoodsController < ApplicationController
+  def index
+    @recipe_foods = RecipeFood.all
+  end
+
   def edit
     @recipe_food = RecipeFood.find(params[:id])
   end
@@ -17,16 +21,19 @@ class RecipeFoodsController < ApplicationController
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
-    @food_arr = Food.all.pluck(:name, :id)
+
+    # Only show the food bought by logined-user or current_user
+    @food_arr = Food.all.where(buyer_id: current_user.id).pluck(:name, :id)
   end
 
   def create
     new_recipe_food = RecipeFood.new(recipe_food_params)
-    new_recipe_food.recipe_id = Recipe.find(params[:recipe_id]).id
+    @recipe = Recipe.find(params[:recipe_id])
+    new_recipe_food.recipe_id = @recipe.id
 
     if new_recipe_food.save
       flash[:notice] = 'New recipe created successfully'
-      redirect_to '/'
+      redirect_to user_recipe_path(user_id: current_user.id, id: @recipe.id)
     else
       render :new, alert: 'Failed to create a new recipe'
       # redirect_to request.referer

@@ -3,7 +3,11 @@
   <%= link_to 'Add new', new_user_food_path(user_id: current_user) %>
 
   <% @foods.each do |food| %>
-    <%= render food %>
+    <% if can? :manage, food %>
+
+      <%= render food %>
+      
+    <% end %>
   <% end %>
 
 </div>
