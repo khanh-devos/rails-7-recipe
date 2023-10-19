@@ -4,5 +4,5 @@ class Recipe < ApplicationRecord
 
   belongs_to :user, foreign_key: :author_id
 
-  has_many :recipe_foods
+  has_many :recipe_foods, foreign_key: 'recipe_id', dependent: :destroy
 end

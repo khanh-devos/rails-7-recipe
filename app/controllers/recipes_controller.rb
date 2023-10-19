@@ -5,12 +5,24 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all.order(created_at: 'desc')
   end
 
-  def show
-    @recipe_foods = RecipeFood.all.where(recipe_id: params[:id])
+  def public_index
+    @public_recipes = Recipe.all.where(public: true).includes(:user, recipe_foods: :food).order(created_at: 'desc')
+  end
 
-    # @values = @recipe_foods.map do |item|
-    #   item.quanity * Food.find(item.food_id)
-    # end
+  def shopping_list
+    current_user_recipe_foods = RecipeFood.where(recipe_id: current_user.recipes.ids, food_id: current_user.foods.ids)
+
+    shopping_demand = current_user_recipe_foods.select('food_id, SUM(recipe_foods.quantity) as total').group('food_id')
+
+    # Store is the food quantity.
+    # filter out when demand greater then Store
+    @shopping_list = shopping_demand.includes(:food).filter { |item| (item.total - item.food.quantity).positive? }
+
+    @total_value = @shopping_list.reduce(0) { |sum, item| sum + ((item.total - item.food.quantity) * item.food.price) }
+  end
+
+  def show
+    @recipe_foods = @recipe.recipe_foods
   end
 
   def new

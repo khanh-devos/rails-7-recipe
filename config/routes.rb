@@ -14,8 +14,10 @@ Rails.application.routes.draw do
   end
 
 
+  get '/users/:user_id/public_recipes', to: "recipes#public_index", as: "public_recipes"
 
-
+  get '/users/:user_id/shopping_list', to: "recipes#shopping_list", as: "shopping_list"
+  
   post '/users/:user_id/recipes/:id', to: "recipes#modify_public", as: "recipe_modify" 
 
 end

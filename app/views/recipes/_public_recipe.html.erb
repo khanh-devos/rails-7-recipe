@@ -1,0 +1,19 @@
+<div id="<%= dom_id public_recipe %>" >
+  <%= link_to user_recipe_path(user_id: current_user.id, id: public_recipe.id), class: "recipe-item" do %>
+  
+  <div class="public-recipe-item" >
+  
+    <p> 
+      <%= public_recipe.name.upcase %><br />
+      (by <%= public_recipe.user.name %>)
+    </p>
+
+    <p>
+      Total food items : <%= public_recipe.recipe_foods.size %><br />
+      Total price : <%= public_recipe.recipe_foods.reduce(0) {|sum, item| sum + item.quantity * item.food.price } %>
+    </p>
+  </div>
+
+  <% end %>
+
+</div>

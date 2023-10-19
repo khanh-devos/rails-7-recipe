@@ -4,8 +4,11 @@
 
   <% @recipes.each do |recipe| %>  
     
+      <% if can? :manage, recipe %>
       
-      <%= render recipe %>
+        <%= render recipe %>
+      
+      <% end %>
       
   <% end %>
 
