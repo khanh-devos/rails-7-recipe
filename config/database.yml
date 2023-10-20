@@ -26,5 +26,6 @@ test:
 
 production:
   <<: *default
-  database: rails_recipe
-  # database: rails_recipe_production
+  database: mysite_production
+  username: mysite
+  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
