@@ -19,5 +19,10 @@ RSpec.describe 'Public Recipes', type: :feature do
       expect(page).to have_content(user.name)
       expect(page).to have_content(@recipe.name.upcase)
     end
+
+    it 'check link to the recipe#show' do
+      visit user_recipe_path(user_id: user.id, id: @recipe.id)
+      expect(page).to have_link('Generate shopping list')
+    end
   end
 end
