@@ -1,11 +1,17 @@
 <div id="<%= dom_id recipe %>" >
   <%= link_to user_recipe_path(user_id: current_user.id, id: recipe.id), class: "recipe-item" do %>
 
-      <p> <%= "Recipe name : #{recipe.name.upcase}" %> </p>
-      <p> <%= "Description : #{(recipe.description + '. ') * 15}" %> </p>
-    
+  <div class="recipe-item-container">
+    <div class='recipe-name-btn'> 
+      <strong><%= recipe.name.upcase %></strong>
+      
+      <%= button_to 'remove', user_recipe_path(user_id: current_user.id, id: recipe.id), method: 'delete', onclick: "event.stopPropagation()" %>
+      
+    </div>
+
+    <p> <%= "Description : #{(recipe.description + '. ') * 15}" %> </p>
+  </div>
+
   <% end %>
-
-  <%= button_to 'remove', user_recipe_path(user_id: current_user.id, id: recipe.id), method: 'delete' %>
-
+    
 </div>

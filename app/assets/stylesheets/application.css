@@ -42,11 +42,25 @@ body {
 .recipe-item {
   text-decoration: none;
   color: black;
-  border: solid blue 0.5px;
-  padding: 15px;
-  border-radius: 10px;
-  margin: 2rem 0 2rem 0;
-  display: block;
+  margin: 2rem 0;
+}
+
+.recipe-item-container {
+  border: 0.1rem solid blue;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 1rem;
+}
+
+.recipe-name-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .food-item {
@@ -79,6 +93,7 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 2rem;
+  justify-content: space-between;
 }
 
 .form-check {
@@ -91,18 +106,36 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
   height: 4rem;
-  border: 0.1rem solid red;
+  margin-top: 1rem;
+  border: 0.1rem solid blue;
+  padding: 0.5rem;
+}
+
+.recipe-food-action {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: baseline;
 }
 
 .recipe-food-header {
-  border: 0.1rem solid red;
+  border: 0.1rem solid blue;
 }
 
-.public-recipe-item,
-.shopping-list-header {
+.public-recipe-item {
+  border: 0.1rem solid blue;
+  border-radius: 1rem;
+  padding: 1rem 0.2rem;
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 2rem;
+  margin: 2rem 0;
+}
+
+.shopping-list-header {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
   margin: 2rem 0;
 }
 
@@ -111,16 +144,31 @@ body {
   grid-template-columns: 1fr 1fr 3fr;
 }
 
-.recipe-food-action {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  align-items: center;
-}
-
 .recipe-food-a {
   border: 0.1rem solid;
   padding: 0.1rem 0.3rem;
   text-decoration: none;
   color: black;
+}
+
+.shopping-and-add-new-ingredient {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+}
+
+.shopping-list {
+  border: 0.1rem solid;
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0.1rem 0.1rem 0.1rem grey;
+}
+
+.button_to button {
+  padding: 0 0.5rem;
 }
