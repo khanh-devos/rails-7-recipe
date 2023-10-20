@@ -5,8 +5,8 @@ RSpec.describe 'Public Recipes', type: :feature do
 
   context 'index' do
     before do
-      Recipe.create!(name: 'Recipe 1', description: 'Description 1', preparation_time: 0.5, public: true,
-                     cooking_time: 1, user: user)
+      @recipe = Recipe.create!(name: 'Recipe 1', description: 'Description 1', preparation_time: 0.5, public: true,
+                               cooking_time: 1, user: user)
 
       visit new_user_session_path
       fill_in 'Email', with: user.email
@@ -17,11 +17,7 @@ RSpec.describe 'Public Recipes', type: :feature do
     it 'renders a list of recipes' do
       visit public_recipes_path(user_id: user.id)
       expect(page).to have_content(user.name)
+      expect(page).to have_content(@recipe.name.upcase)
     end
-
-    # it 'renders the recipe name' do
-    #   visit public_recipes_path(user_id: user.id)
-    #   expect(page).to have_content('Recipe 1')
-    # end
   end
 end

@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
 
     if new_food.save
       flash[:notice] = 'New food created successfully!'
-      redirect_to '/'
+      redirect_to user_foods_path(user_id: current_user.id)
 
     else
       render :new, alert: 'Failed to add a new food!'
