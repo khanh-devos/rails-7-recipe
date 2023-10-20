@@ -26,6 +26,7 @@ test:
 
 production:
   <<: *default
-  database: mysite_production
-  username: mysite
-  password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+  port: 5432
+  username: rails_recipe_production_user
+  database: rails_recipe_production
+  password: RsXRU5N7ZNYfwZ6TVH2zjJrClk1K31CF
