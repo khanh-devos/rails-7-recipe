@@ -12,7 +12,7 @@
       <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">    
     </div>
 
-    <% if can? :mange, @recipe %>
+    <% if can? :manage, @recipe %>
       <%= button_to "change", url: recipe_modify_path(user_id: current_user.id, id: @recipe.id), method: 'post' %>
     <% end %>
         

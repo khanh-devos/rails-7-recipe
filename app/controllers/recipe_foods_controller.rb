@@ -9,7 +9,6 @@ class RecipeFoodsController < ApplicationController
 
   def update
     @recipe_food = RecipeFood.find(params[:id])
-    puts params[:recipe_food]
 
     if @recipe_food.update(recipe_food_params)
       flash[:notice] = 'Successfully updated'
