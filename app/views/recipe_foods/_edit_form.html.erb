@@ -1,0 +1,18 @@
+<%= form_with model: @recipe_food, url: user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: @recipe_food.recipe_id, id: @recipe_food.id), method: 'put', local: true, scope: :recipe_food do |form| %>
+  <div class='form'>
+
+    <div>
+        <%= form.label :quantity %>
+        <%= form.number_field :quantity, autofocus: true, required: true %>
+    </div>
+
+    
+
+    <div>
+        <%= form.submit "Add" %>
+    </div>
+
+  </div>
+<% end %>
+
+<%= link_to 'Back', user_recipe_path(user_id: current_user.id, id: @recipe_food.recipe_id), class: "recipe-item" %>

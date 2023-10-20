@@ -1,0 +1,36 @@
+  
+  <h2>SHOPPING LIST</h2>
+
+  <div class="shopping-list-header">
+    <p> Total items : <%= @shopping_list.length %> </p>
+    <p> Total value of food needed : $ <%= @total_value %> </p>
+  </div>
+
+
+  <div class="shopping-list-item">
+    <strong>Food</strong>
+    <strong>Quantity</strong>
+    <strong>Price</strong>
+  </div><br />
+
+
+  <% @shopping_list.each do |item| %>
+  
+    <div class="shopping-list-item">
+    
+      
+      <p>
+        <%= item.food.name %>
+      </p>
+
+      <p>
+          <%= item.total - item.food.quantity %>
+          <%= item.food.measurement_unit %>
+      </p>
+
+      <p>
+          $ <%= (item.total - item.food.quantity) * item.food.price %>
+      </p>
+      
+    </div>
+  <% end %>

@@ -1,0 +1,23 @@
+<%= form_with model: @recipe_food, url: user_recipe_recipe_foods_path(user_id: current_user.id, recipe_id: @recipe.id), method: 'post', local: true, scope: :recipe_food do |form| %>
+  <div class='form'>
+
+    <div>
+        <%= form.label :food %>
+        <%= form.select :food_id, @food_arr, autofocus: true, required: true %>
+    </div>
+
+    <div>
+        <%= form.label :quantity %>
+        <%= form.number_field :quantity, autofocus: true, required: true %>
+    </div>
+
+    
+
+    <div>
+        <%= form.submit "Add" %>
+    </div>
+
+  </div>
+<% end %>
+
+<%= link_to 'Back', user_recipe_path(user_id: current_user.id, id: @recipe.id), class: "recipe-item" %>

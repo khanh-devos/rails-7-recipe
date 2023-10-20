@@ -1,0 +1,21 @@
+<div id="<%= dom_id recipe_food %>" class="recipe-food-item" >
+
+    <p> 
+      <%=  recipe_food.food.name %>
+    </p>
+
+    <p> 
+      <%=  recipe_food.quantity %> <%= Food.find(recipe_food.food_id).measurement_unit %>
+    </p>
+
+    <p> 
+      $ <%=  recipe_food.quantity * Food.find(recipe_food.food_id).price  %>
+    </p>
+
+    <div class="recipe-food-action">
+      <%= link_to "Modify", edit_user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: recipe_food.recipe_id, id: recipe_food.id), class: "recipe-food-a" %>
+      
+      <%= button_to "Remove", user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: recipe_food.recipe_id, id: recipe_food.id), method: 'delete', class: "recipe-food-btn" %>  
+    </div>
+
+</div>

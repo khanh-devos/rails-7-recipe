@@ -1,0 +1,187 @@
+
+:root {
+  --total_padding: 1rem 10rem;
+
+  @media screen and (max-width: 768px) {
+    --total_padding: 1rem 1rem;
+  }
+}
+
+*:not(h2, h3) {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+a:active {
+  font-weight: bold;
+}
+
+body {
+  padding: var(--total_padding);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.1rem 1rem;
+}
+
+.recipe-item {
+  text-decoration: none;
+  color: black;
+  margin: 2rem 0;
+}
+
+.recipe-item-container {
+  border: 0.1rem solid blue;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 1rem;
+}
+
+.recipe-name-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.food-item {
+  margin-top: 2rem;
+  text-decoration: none;
+  color: black;
+  border: solid blue 0.5px;
+  padding: 15px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: min-content;
+  gap: 1rem;
+}
+
+.notice {
+  color: rgb(0, 156, 3);
+}
+
+.alert {
+  color: rgb(255, 0, 0);
+}
+
+.toggle-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.form-check {
+  scale: 1.5;
+  pointer-events: none;
+}
+
+.recipe-food-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  height: 4rem;
+  margin-top: 1rem;
+  border: 0.1rem solid blue;
+  padding: 0.5rem;
+}
+
+.recipe-food-action {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.recipe-food-header {
+  border: 0.1rem solid blue;
+}
+
+.public-recipe-item {
+  border: 0.1rem solid blue;
+  border-radius: 1rem;
+  padding: 1rem 0.2rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.shopping-list-header {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.shopping-list-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr;
+}
+
+.recipe-food-a {
+  border: 0.1rem solid;
+  padding: 0.1rem 0.3rem;
+  text-decoration: none;
+  color: black;
+}
+
+.shopping-and-add-new-ingredient {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+}
+
+.shopping-list {
+  border: 0.1rem solid;
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0.1rem 0.1rem 0.1rem grey;
+}
+
+.button_to button {
+  padding: 0 0.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#public-btn button {
+  border: none;
+  background: none;
+  position: relative;
+}
+
+.no-authorized {
+  opacity: 0.5;
+}

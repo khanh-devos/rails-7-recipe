@@ -1,0 +1,82 @@
+<div>
+  <h2>
+    <%= @recipe.name.upcase %> 
+    (by : <%= User.find(@recipe.author_id).name %>)
+  </h2>
+
+  <div class='toggle-container'>
+    <p>
+      <%= "Preparation time: #{@recipe.preparation_time}" %>
+    </p>
+    
+    <div class='toggle-container'>
+
+      <% if can? :manage, @recipe %>
+
+        <strong>Public :</strong>
+        
+        <%= button_to recipe_modify_path(user_id: current_user.id, id: @recipe.id), form: {id: 'public-btn'}, method: 'post' do %>
+
+          <div class="form-check form-switch" id="public-btn">
+            <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">    
+          </div>
+
+        <% end %>
+      <% else %>
+          <strong>Public (no authorized) :</strong>
+          <div class="form-check form-switch no-authorized">
+            <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">
+          </div>
+
+
+
+      <% end %>
+    </div>
+        
+  </div>
+
+  
+
+  <p>
+    <%= "Cooking time: #{@recipe.cooking_time}" %>
+  </p>
+
+  <p>Steps go here...</p>
+
+  
+  
+  <div class="shopping-and-add-new-ingredient">
+    
+    
+      <p>
+        <%= link_to 'Generate shopping list', shopping_list_path(user_id: current_user.id), class: 'shopping-list' %>
+      </p>
+
+    <% if can? :create, @recipe%>
+    
+      <p>
+      <%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: @recipe.id), class: 'shopping-list' %>
+      </p>
+
+    <% end %>
+
+  </div>
+
+  <div>
+
+    <div class="recipe-food-item recipe-food-header">  
+      <strong>Food</strong>
+      <strong>Quantity</strong>
+      <strong>Value</strong>    
+      <strong>Action</strong>
+    </div>
+
+    <% @recipe_foods.each do |recipe_food| %>
+
+      <%= render recipe_food %>
+
+    <% end %>
+  </div>
+
+
+</div>
