@@ -5,22 +5,24 @@
   </h2>
 
   <div class='toggle-container'>
-
+    <p>
+      <%= "Preparation time: #{@recipe.preparation_time}" %>
+    </p>
     
-    <strong>Public :</strong>
-    <div class="form-check form-switch">
-      <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">    
-    </div>
+    <div class='toggle-container'>
+      <strong>Public :</strong>
+      <div class="form-check form-switch">
+        <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">    
+      </div>
 
-    <% if can? :manage, @recipe %>
-      <%= button_to "change", url: recipe_modify_path(user_id: current_user.id, id: @recipe.id), method: 'post' %>
-    <% end %>
+      <% if can? :manage, @recipe %>
+        <%= button_to "change", url: recipe_modify_path(user_id: current_user.id, id: @recipe.id), method: 'post' %>
+      <% end %>
+    </div>
         
   </div>
 
-  <p>
-    <%= "Preparation time: #{@recipe.preparation_time}" %>
-  </p>
+  
 
   <p>
     <%= "Cooking time: #{@recipe.cooking_time}" %>
@@ -28,17 +30,19 @@
 
   <p>Steps go here...</p>
 
-  <div>
+  
+  
+  <div class="shopping-and-add-new-ingredient">
     
     
       <p>
-        <%= link_to 'Generate shopping list', shopping_list_path(user_id: current_user.id) %>
+        <%= link_to 'Generate shopping list', shopping_list_path(user_id: current_user.id), class: 'shopping-list' %>
       </p>
 
     <% if can? :create, @recipe%>
     
       <p>
-      <%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: @recipe.id) %>
+      <%= link_to 'Add ingredient', new_user_recipe_recipe_food_path(user_id: current_user.id, recipe_id: @recipe.id), class: 'shopping-list' %>
       </p>
 
     <% end %>
