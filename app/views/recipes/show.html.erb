@@ -10,13 +10,26 @@
     </p>
     
     <div class='toggle-container'>
-      <strong>Public :</strong>
-      <div class="form-check form-switch">
-        <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">    
-      </div>
 
       <% if can? :manage, @recipe %>
-        <%= button_to "change", url: recipe_modify_path(user_id: current_user.id, id: @recipe.id), method: 'post' %>
+
+        <strong>Public :</strong>
+        
+        <%= button_to recipe_modify_path(user_id: current_user.id, id: @recipe.id), form: {id: 'public-btn'}, method: 'post' do %>
+
+          <div class="form-check form-switch" id="public-btn">
+            <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">    
+          </div>
+
+        <% end %>
+      <% else %>
+          <strong>Public (no authorized) :</strong>
+          <div class="form-check form-switch no-authorized">
+            <input type="checkbox" <%= @recipe.public ? 'checked': '' %> class="form-check-input">
+          </div>
+
+
+
       <% end %>
     </div>
         

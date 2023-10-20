@@ -170,5 +170,18 @@ body {
 }
 
 .button_to button {
-  padding: 0 0.5rem;
+  padding: 0 0.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+#public-btn button {
+  border: none;
+  background: none;
+  position: relative;
+}
+
+.no-authorized {
+  opacity: 0.5;
 }
