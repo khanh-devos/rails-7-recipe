@@ -27,6 +27,7 @@ test:
 
 production:
   <<: *default
+  host: dpg-ckp90fe2eoec73a4tohg-a
   port: 5432
   username: rails_recipe_production_user
   database: rails_recipe_production
