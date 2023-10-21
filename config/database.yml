@@ -27,6 +27,7 @@ test:
 
 production:
   <<: *default
+  port: 5432
   username: rails_recipe_production_user
   database: rails_recipe_production
   password: RsXRU5N7ZNYfwZ6TVH2zjJrClk1K31CF
