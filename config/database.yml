@@ -30,4 +30,5 @@ production:
   port: 5432
   username: rails_recipe_production_user
   database: rails_recipe_production
-  password: RsXRU5N7ZNYfwZ6TVH2zjJrClk1K31CF
+  password: <%= Rails.application.secrets.postgresql_password %>
+  secret_key_base: <%= Rails.application.secrets.secret_key_base %>
