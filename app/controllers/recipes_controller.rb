@@ -47,7 +47,8 @@ class RecipesController < ApplicationController
       flash[:notice] = 'New recipe created successfully'
       redirect_to '/'
     else
-      render :new, alert: 'Failed to create a new recipe'
+      flash[:alert] = 'Something wrong!, failed to create'
+      render :new
       # redirect_to request.referer
     end
   end
